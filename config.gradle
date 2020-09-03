@@ -1,7 +1,7 @@
 
 ext {
 
-  group = 'com.c332030.common'
+  group = 'com.c332030.commons'
   version = '0.0.1-SNAPSHOT'
 
   charset = 'utf-8'
