@@ -1,0 +1,21 @@
+
+dependencies {
+
+  api project(':c-commons-model')
+
+  api group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
+  api group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
+  api group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
+
+  // google
+  api group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
+  api group: 'com.google.guava', name: 'guava', version: versions.google_guava
+
+  // logback
+  api group: 'ch.qos.logback', name: 'logback-core', version: versions.logback
+  api group: 'ch.qos.logback', name: 'logback-classic', version: versions.logback
+
+  // cglib
+  api group: 'cglib', name: 'cglib', version: versions.cglib
+
+}

@@ -1,0 +1,98 @@
+
+def ext = rootProject.ext
+def versions = ext.versions
+
+buildscript {
+
+  apply from: 'config.gradle'
+
+  repositories {
+    maven {
+      url 'https://nexus.local.c332030.com/repository/maven-public/'
+    }
+  }
+}
+
+subprojects {
+
+  apply plugin: 'java-library'
+  apply plugin: 'maven-publish'
+
+  group = ext.group
+  version = ext.version
+
+  sourceCompatibility = JavaVersion.VERSION_11
+  targetCompatibility = JavaVersion.VERSION_11
+
+  [compileJava, compileTestJava, javadoc]*.options*.encoding = ext.charset
+
+  jar {
+    enabled = true
+
+    into("META-INF/maven/$project.group/$project.name") {
+      from { generatePomFileForMavenPublication }
+      rename ".*", "pom.xml"
+    }
+  }
+
+  java {
+    withJavadocJar()
+    withSourcesJar()
+  }
+
+  repositories {
+    maven {
+      url 'https://nexus.local.c332030.com/repository/maven-public/'
+    }
+  }
+
+  dependencies {
+
+    testImplementation group: 'junit', name: 'junit', version: versions.junit
+
+    // lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+
+  }
+
+  // 实时更新 snapshots
+  configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
+    resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
+  }
+
+// 测试配置
+  test {
+    // include '**/Test*.class'
+
+    exclude '**/*Test*.class'
+  }
+
+  publishing {
+    publications {
+      maven(MavenPublication) {
+        groupId project.group
+        artifactId project.name
+        version project.version
+        from components.java
+      }
+    }
+
+    repositories {
+      maven {
+        def releasesRepoUrl = "https://nexus.local.c332030.com/repository/maven-releases/"
+        def snapshotsRepoUrl = "https://nexus.local.c332030.com/repository/maven-snapshots/"
+        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+        credentials {
+          username 'admin'
+          password '123456'
+        }
+      }
+    }
+  }
+}

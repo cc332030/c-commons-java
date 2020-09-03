@@ -1,0 +1,11 @@
+plugins {
+    id 'java'
+}
+
+dependencies {
+
+    api project(':c-commons-util')
+
+    api group: 'org.reflections', name: 'reflections', version: versions.reflections
+
+}

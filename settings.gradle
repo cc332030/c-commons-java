@@ -1,0 +1,17 @@
+
+pluginManagement {
+  repositories {
+    maven {
+      url 'https://nexus.local.c332030.com/repository/maven-public/'
+    }
+  }
+}
+
+rootProject.name = 'c-commons-java'
+
+include 'c-commons-entity'
+include 'c-commons-constant'
+include 'c-commons-model'
+
+include 'c-commons-util'
+include 'c-commons-service'
