@@ -16,7 +16,7 @@ import static com.c332030.constant.sys.io.ByteConstants.BYTES_OF_MB;
  * @author c332030
  * @version 1.0
  */
-public abstract class IOUtils {
+public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 
     private static final int DEFAULT_SIZE = BYTES_OF_MB;
 
