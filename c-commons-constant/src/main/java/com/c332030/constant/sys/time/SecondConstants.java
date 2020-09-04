@@ -8,7 +8,7 @@ package com.c332030.constant.sys.time;
  * @author c332030
  * @version 1.0
  */
-public class SecondConstants {
+public abstract class SecondConstants {
 
     /**
      * 每分 秒数

@@ -8,7 +8,7 @@ package com.c332030.constant.sys.date;
  * @author c332030
  * @version 1.0
  */
-public class DateFormatConstants {
+public abstract class DateFormatConstants {
 
     public static final String DATE_STR = "yyyyMMdd";
 

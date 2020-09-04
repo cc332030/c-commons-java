@@ -8,7 +8,7 @@ package com.c332030.constant.sys.time;
  * @author c332030
  * @version 1.0
  */
-public class TimeConstants {
+public abstract class TimeConstants {
 
     public static final String UTC = "UTC";
 

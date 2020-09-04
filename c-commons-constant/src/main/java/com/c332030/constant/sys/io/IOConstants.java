@@ -8,6 +8,6 @@ package com.c332030.constant.sys.io;
  * @author c332030
  * @version 1.0
  */
-public class IOConstants {
+public abstract class IOConstants {
 
 }
