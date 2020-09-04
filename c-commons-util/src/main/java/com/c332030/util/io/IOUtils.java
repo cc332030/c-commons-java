@@ -27,6 +27,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      *
      * @param inputStream 输入流
      * @return 流中数据
+     * @throws IOException IO异常
      * @author c332030
      */
     public static String readString(@Nonnull InputStream inputStream) throws IOException {
@@ -46,6 +47,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      *
      * @param inputStream 输入流
      * @param outputStream 输出流
+     * @throws IOException IO异常
      * @author c332030
      */
     public static void readAndWrite(@Nonnull InputStream inputStream, @Nonnull OutputStream outputStream) throws IOException {
@@ -61,6 +63,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      *
      * @param inputStream 输入流
      * @param consumer 数据处理
+     * @throws IOException IO异常
      * @author c332030
      */
     public static void read(@Nonnull InputStream inputStream, @Nonnull IOBiConsumer consumer) throws IOException {
@@ -75,6 +78,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      * @param inputStream 输入流
      * @param consumer 数据处理
      * @param size 每次大小
+     * @throws IOException IO异常
      * @author c332030
      */
     public static void read(@Nonnull InputStream inputStream, @Nonnull IOBiConsumer consumer, int size) throws IOException {
