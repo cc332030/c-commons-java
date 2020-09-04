@@ -6,7 +6,7 @@ import java.io.OutputStream;
 
 import javax.annotation.Nonnull;
 
-import static com.c332030.constant.sys.io.ByteConstants.BYTES_OF_MB;
+import static com.c332030.constant.io.ByteConstants.BYTES_OF_MB;
 
 /**
  * <p>

@@ -1,4 +1,4 @@
-package com.c332030.constant.sys.date;
+package com.c332030.constant.date;
 
 /**
  * <p>

@@ -1,4 +1,4 @@
-package com.c332030.constant.sys;
+package com.c332030.constant;
 
 import java.nio.charset.StandardCharsets;
 
