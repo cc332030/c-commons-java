@@ -1,4 +1,4 @@
-package com.c332030.util.file;
+package com.c332030.util.io;
 
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
