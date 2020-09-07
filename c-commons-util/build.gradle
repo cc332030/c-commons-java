@@ -6,6 +6,8 @@ dependencies {
   api group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
   api group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
   api group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
+  api group: 'commons-net', name: 'commons-net', version: versions.apache_commons_net
+
 
   // google
   api group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
