@@ -30,7 +30,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      * @throws IOException IO异常
      * @author c332030
      */
-    public static String readString(@Nonnull InputStream inputStream) throws IOException {
+    public static String toString(@Nonnull InputStream inputStream) throws IOException {
 
         StringBuilder stringBuilder = new StringBuilder();
         read(inputStream, (byte[] bytes, int length) -> {
