@@ -2,7 +2,7 @@ package com.c332030.util.io;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.io.OutputStream;
+import java.nio.charset.StandardCharsets;
 
 import javax.annotation.Nonnull;
 
@@ -31,25 +31,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      * @author c332030
      */
     public static String toString(@Nonnull InputStream inputStream) throws IOException {
-
-        StringBuilder stringBuilder = new StringBuilder();
-        read(inputStream, (byte[] bytes, int length) -> stringBuilder.append(new String(bytes, 0, length)));
-
-        return stringBuilder.toString();
-    }
-
-    /**
-     * <p>
-     * Description: 从输入流中读取数据到输出流
-     * </p>
-     *
-     * @param inputStream 输入流
-     * @param outputStream 输出流
-     * @throws IOException IO异常
-     * @author c332030
-     */
-    public static void readAndWrite(@Nonnull InputStream inputStream, @Nonnull OutputStream outputStream) throws IOException {
-        read(inputStream, (byte[] bytes, int length) -> outputStream.write(bytes, 0, length));
+        return toString(inputStream, StandardCharsets.UTF_8);
     }
 
     /**
