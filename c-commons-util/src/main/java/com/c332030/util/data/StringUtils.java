@@ -12,6 +12,9 @@ import com.c332030.util.asserts.Assert;
  */
 public abstract class StringUtils extends org.apache.commons.lang3.StringUtils {
 
+    public static final String FOUR_SPACE = "    ";
+
+    public static final String EIGHT_SPACE = FOUR_SPACE + FOUR_SPACE;
 
     /**
      * <p>
@@ -124,7 +127,7 @@ public abstract class StringUtils extends org.apache.commons.lang3.StringUtils {
         stringBuilder.append('\n');
 
         for(StackTraceElement stackTraceElement: e.getStackTrace()) {
-            stringBuilder.append('\t');
+            stringBuilder.append(FOUR_SPACE);
             stringBuilder.append(stackTraceElement);
             stringBuilder.append('\n');
         }
