@@ -33,9 +33,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
     public static String toString(@Nonnull InputStream inputStream) throws IOException {
 
         StringBuilder stringBuilder = new StringBuilder();
-        read(inputStream, (byte[] bytes, int length) -> {
-            stringBuilder.append(new String(bytes, 0, length));
-        });
+        read(inputStream, (byte[] bytes, int length) -> stringBuilder.append(new String(bytes, 0, length)));
 
         return stringBuilder.toString();
     }
@@ -51,9 +49,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      * @author c332030
      */
     public static void readAndWrite(@Nonnull InputStream inputStream, @Nonnull OutputStream outputStream) throws IOException {
-        read(inputStream, (byte[] bytes, int length) -> {
-            outputStream.write(bytes, 0, length);
-        });
+        read(inputStream, (byte[] bytes, int length) -> outputStream.write(bytes, 0, length));
     }
 
     /**
