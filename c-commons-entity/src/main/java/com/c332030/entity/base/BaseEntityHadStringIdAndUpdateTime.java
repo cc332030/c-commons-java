@@ -1,6 +1,6 @@
 package com.c332030.entity.base;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import lombok.Data;
 
@@ -20,5 +20,5 @@ public class BaseEntityHadStringIdAndUpdateTime extends BaseEntityHadStringIdAnd
     /**
      * 修改时间
      */
-    private LocalDateTime updateTime;
+    private Instant updateTime;
 }

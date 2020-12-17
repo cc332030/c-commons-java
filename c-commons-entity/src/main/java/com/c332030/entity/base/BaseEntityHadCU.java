@@ -1,6 +1,6 @@
 package com.c332030.entity.base;
 
-import java.time.LocalDateTime;
+import java.time.Instant;
 
 import lombok.Data;
 
@@ -39,5 +39,5 @@ public abstract class BaseEntityHadCU<E> extends BaseEntityHadCreateTime<E> {
     /**
      * 最后更新人时间
      */
-    private LocalDateTime lastUpdateTime;
+    private Instant lastUpdateTime;
 }
