@@ -13,7 +13,7 @@ import lombok.extern.slf4j.Slf4j;
 import com.c332030.constant.enumerable.sys.EqualEnum;
 import com.c332030.util.asserts.Assert;
 import com.c332030.util.collection.ArrayUtils;
-import com.c332030.util.data.StringUtils;
+import com.c332030.util.data.CStringUtils;
 
 import net.sf.cglib.beans.BeanCopier;
 
@@ -49,7 +49,7 @@ public abstract class BeanUtils {
      */
     public static Map<String, BeanCopier> getBeanCopierMap(Class<?> cls) {
 
-        String key = StringUtils.getKey(cls);
+        String key = CStringUtils.getKey(cls);
 
         Map<String, BeanCopier> beanCopierMap = BEAN_COPIER_MAP.get(key);
 
@@ -84,7 +84,7 @@ public abstract class BeanUtils {
      */
     public static BeanCopier getBeanCopier(Class<?> cls1, Class<?> cls2) {
 
-        String key = StringUtils.getKey(cls2);
+        String key = CStringUtils.getKey(cls2);
 
         Map<String, BeanCopier> beanCopierMap = getBeanCopierMap(cls1);
         BeanCopier beanCopier = beanCopierMap.get(key);
