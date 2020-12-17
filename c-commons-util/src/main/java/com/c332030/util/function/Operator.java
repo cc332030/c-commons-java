@@ -9,7 +9,7 @@ package com.c332030.util.function;
  * @version 1.0
  */
 @FunctionalInterface
-public interface ZeroConsumer {
+public interface Operator {
 
     /**
      * Performs this operation.
