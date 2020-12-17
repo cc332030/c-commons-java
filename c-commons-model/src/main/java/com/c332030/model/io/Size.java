@@ -3,7 +3,7 @@ package com.c332030.model.io;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
-import com.c332030.constant.io.SizeUnit;
+import com.c332030.constant.io.SizeUnitEnum;
 
 /**
  * <p>
@@ -25,6 +25,6 @@ public class Size {
     /**
      * 单位
      */
-    private SizeUnit unit;
+    private SizeUnitEnum unit;
 
 }
