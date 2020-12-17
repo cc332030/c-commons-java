@@ -6,6 +6,9 @@ import java.nio.charset.StandardCharsets;
 
 import javax.annotation.Nonnull;
 
+import com.c332030.constant.io.SizeUnitEnum;
+import com.c332030.model.io.Size;
+
 import static com.c332030.constant.io.ByteConstants.BYTES_OF_MB;
 
 /**
@@ -22,7 +25,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
 
     /**
      * <p>
-     * Description: 从流中读取字符串
+     * Description: read string from input stream
      * </p>
      *
      * @param inputStream 输入流
@@ -71,4 +74,27 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
         }
     }
 
+    private static final SizeUnitEnum[] SIZE_UNITS = SizeUnitEnum.values();
+
+    /**
+     * <p>
+     * Description: get size from byte length
+     * </p>
+     *
+     * @param length byte length
+     * @return the suit size with unit of byte length
+     * @author c332030
+     */
+    public static Size byteToSize(long length) {
+
+        int index = 0;
+
+        long result;
+        while ((result = length / 1024) > 0) {
+            index++;
+            length = result;
+        }
+
+        return new Size(length, SIZE_UNITS[index]);
+    }
 }
