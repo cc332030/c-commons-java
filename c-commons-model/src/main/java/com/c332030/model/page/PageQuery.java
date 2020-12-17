@@ -27,4 +27,5 @@ public class PageQuery implements IPage {
      * 排序
      */
     private String orderBy;
+
 }
