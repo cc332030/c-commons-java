@@ -23,6 +23,8 @@ public class PageUtils {
 
     private static final int DEFAULT_PAGE_SIZE = 1000;
 
+    private PageUtils() {}
+
     /**
      * <p>
      * Description: do operator for every page

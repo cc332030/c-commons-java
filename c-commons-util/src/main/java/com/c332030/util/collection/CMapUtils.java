@@ -18,7 +18,9 @@ import com.c332030.util.concurrent.CConcurrentUtils;
  * @author c332030
  * @version 1.0
  */
-public abstract class CMapUtils {
+public class CMapUtils {
+
+    private CMapUtils() {}
 
     /**
      * <p>

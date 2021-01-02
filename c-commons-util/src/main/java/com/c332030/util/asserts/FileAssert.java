@@ -12,7 +12,9 @@ import javax.annotation.Nullable;
  * @author c332030
  * @version 1.0
  */
-public abstract class FileAssert {
+public class FileAssert {
+
+    private FileAssert() {}
 
     /**
      * <p>
@@ -24,8 +26,8 @@ public abstract class FileAssert {
      * @author c332030
      */
     public static void exists(@Nullable File file, String message) {
-        Assert.notNull(file, message);
-        Assert.state(!file.exists(), message);
+        CAssert.notNull(file, message);
+        CAssert.state(!file.exists(), message);
     }
 
     /**
@@ -38,8 +40,8 @@ public abstract class FileAssert {
      * @author c332030
      */
     public static void notExists(@Nullable File file, String message) {
-        Assert.notNull(file, message);
-        Assert.state(file.exists(), message);
+        CAssert.notNull(file, message);
+        CAssert.state(file.exists(), message);
     }
 
     /**
@@ -52,8 +54,8 @@ public abstract class FileAssert {
      * @author c332030
      */
     public static void notFile(@Nullable File file, String message) {
-        Assert.notNull(file, message);
-        Assert.state(!file.isDirectory(), message);
+        CAssert.notNull(file, message);
+        CAssert.state(!file.isDirectory(), message);
     }
 
     /**
@@ -66,8 +68,8 @@ public abstract class FileAssert {
      * @author c332030
      */
     public static void notDirectory(@Nullable File file, String message) {
-        Assert.notNull(file, message);
+        CAssert.notNull(file, message);
         notExists(file, message);
-        Assert.state(file.isDirectory(), message);
+        CAssert.state(file.isDirectory(), message);
     }
 }

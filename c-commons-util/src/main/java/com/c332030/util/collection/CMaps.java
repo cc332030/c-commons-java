@@ -10,7 +10,9 @@ import java.util.LinkedHashMap;
  * @author c332030
  * @version 1.0
  */
-public abstract class CMaps {
+public class CMaps {
+
+    private CMaps() {}
 
     /**
      * <p>

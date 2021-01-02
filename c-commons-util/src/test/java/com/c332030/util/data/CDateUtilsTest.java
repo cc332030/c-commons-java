@@ -9,9 +9,9 @@ import org.junit.Test;
 import lombok.extern.slf4j.Slf4j;
 
 import static com.c332030.constant.date.DateFormatConstants.DATE_STR;
-import static com.c332030.util.data.DateUtils.DATE_TIME_FORMATTER;
-import static com.c332030.util.data.DateUtils.getZoneId;
-import static com.c332030.util.data.DateUtils.zoneToIndex;
+import static com.c332030.util.data.CDateUtils.DATE_TIME_FORMATTER;
+import static com.c332030.util.data.CDateUtils.getZoneId;
+import static com.c332030.util.data.CDateUtils.zoneToIndex;
 
 /**
  * <p>
@@ -22,7 +22,7 @@ import static com.c332030.util.data.DateUtils.zoneToIndex;
  * @version 1.0
  */
 @Slf4j
-public class DateUtilsTest {
+public class CDateUtilsTest {
 
     @Test
     public void zoneTest() {

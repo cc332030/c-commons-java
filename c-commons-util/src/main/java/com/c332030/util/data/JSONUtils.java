@@ -8,7 +8,9 @@ package com.c332030.util.data;
  * @author c332030（袁兴旺）
  * @version 1.0
  */
-public abstract class JSONUtils {
+public class JSONUtils {
+
+    private JSONUtils() {}
 
     /**
      * <p>

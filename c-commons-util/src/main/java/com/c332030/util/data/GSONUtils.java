@@ -19,9 +19,11 @@ import lombok.extern.slf4j.Slf4j;
  * @version 1.0
  */
 @Slf4j
-public abstract class GSONUtils {
+public class GSONUtils {
 
     private static final Gson GSON = new Gson();
+
+    private GSONUtils() {}
 
     /**
      * <p>

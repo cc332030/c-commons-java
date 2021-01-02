@@ -30,7 +30,9 @@ import static com.c332030.constant.time.TimeConstants.UTC8;
  * @author c332030
  * @version 1.0
  */
-public abstract class DateUtils {
+public class CDateUtils {
+
+    private CDateUtils() {}
 
     /**
      * <p>

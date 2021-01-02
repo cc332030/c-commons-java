@@ -11,7 +11,9 @@ import com.c332030.util.Tools;
  * @author c332030
  * @version 1.0
  */
-public abstract class ArrayUtils extends org.apache.commons.lang3.ArrayUtils {
+public class CArrayUtils{
+
+    private CArrayUtils() {}
 
     /**
      * <p>

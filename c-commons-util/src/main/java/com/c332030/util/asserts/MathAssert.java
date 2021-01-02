@@ -8,7 +8,9 @@ package com.c332030.util.asserts;
  * @author c332030
  * @version 1.0
  */
-public abstract class MathAssert {
+public class MathAssert {
+
+    private MathAssert() {}
 
     /**
      * <p>
@@ -20,8 +22,8 @@ public abstract class MathAssert {
      * @author c332030
      */
     public static void overMaxInteger(long num, String message) {
-        Assert.isTrue(num <= Integer.MAX_VALUE, message);
-        Assert.isTrue(num >= Integer.MIN_VALUE, message);
+        CAssert.isTrue(num <= Integer.MAX_VALUE, message);
+        CAssert.isTrue(num >= Integer.MIN_VALUE, message);
     }
 
 }

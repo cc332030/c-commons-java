@@ -13,7 +13,9 @@ import javax.annotation.Nonnull;
  * @author c332030
  * @version 1.0
  */
-public abstract class CConcurrentUtils {
+public class CConcurrentUtils {
+
+    private CConcurrentUtils() {}
 
     public static <E> E getWithSet(
         @Nonnull Object lockObject,

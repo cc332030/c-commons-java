@@ -3,6 +3,7 @@ package com.c332030.util.io;
 import java.io.File;
 import java.io.IOException;
 
+import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
 import org.junit.Test;
@@ -18,7 +19,7 @@ import lombok.val;
  * @author c332030
  * @version 1.0
  */
-public class FileUtilsTest {
+public class CFileUtilsTest {
 
     @Test
     @SneakyThrows
@@ -34,7 +35,7 @@ public class FileUtilsTest {
             throw new IOException("创建文件夹失败");
         }
 
-        val files = FileUtils.split(
+        val files = CFileUtils.split(
             file
             , (name, index) -> new File(
                 childPath + name + '.'
@@ -49,7 +50,7 @@ public class FileUtilsTest {
     @SneakyThrows
     public void testMerge() {
         val path = "d:\\file\\";
-        FileUtils.merge(
+        CFileUtils.merge(
             new File(path + "child").listFiles()
             , new File(path + "Lavender-new.jpg")
         );

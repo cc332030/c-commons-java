@@ -16,7 +16,10 @@ import lombok.extern.slf4j.Slf4j;
  * @version 1.0
  */
 @Slf4j
-public abstract class Assert {
+public class CAssert {
+
+    private CAssert() {}
+
     /**
      * <p>
      * Description: 不允许为空

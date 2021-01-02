@@ -5,14 +5,16 @@ import java.util.Arrays;
 import java.util.Map;
 import java.util.Objects;
 
+import org.apache.commons.lang3.ArrayUtils;
+
 import com.google.common.collect.Maps;
 
 import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 import com.c332030.constant.enumerable.sys.EqualEnum;
-import com.c332030.util.asserts.Assert;
-import com.c332030.util.collection.ArrayUtils;
+import com.c332030.util.asserts.CAssert;
+import com.c332030.util.collection.CArrayUtils;
 import com.c332030.util.data.CStringUtils;
 
 import net.sf.cglib.beans.BeanCopier;
@@ -26,7 +28,9 @@ import net.sf.cglib.beans.BeanCopier;
  * @version 1.0
  */
 @Slf4j
-public abstract class BeanUtils {
+public class CBeanUtils {
+
+    private CBeanUtils() {}
 
     /**
      * BeanCopier Map
@@ -184,12 +188,12 @@ public abstract class BeanUtils {
         Class<E> eClass, Class<?>... paramClassArr
     ) throws Exception {
 
-        Assert.notNull(eClass, "类不存在");
+        CAssert.notNull(eClass, "类不存在");
 
         Constructor<?>[] constructors = eClass.getDeclaredConstructors();
         for(Constructor<?> constructor: constructors) {
 
-            if(! ArrayUtils.equals(paramClassArr, constructor.getParameterTypes(), EqualEnum.NULL_EQUAL)) {
+            if(! CArrayUtils.equals(paramClassArr, constructor.getParameterTypes(), EqualEnum.NULL_EQUAL)) {
                 continue;
             }
 
@@ -218,17 +222,16 @@ public abstract class BeanUtils {
         Class<E> eClass, Object... params
     ) throws Exception {
 
-        Assert.notNull(eClass, "类不存在");
+        CAssert.notNull(eClass, "类不存在");
 
         Class<?>[] classes = null;
 
-        if(!ArrayUtils.isEmpty(params)) {
-            int len = params.length;
+        if(ArrayUtils.isNotEmpty(params)) {
 
+            int len = params.length;
             classes = new Class[len];
             for(int i = 0; i < len; i++) {
                 Object object = params[i];
-
                 classes[i] = null == object ? null : object.getClass();
             }
         }

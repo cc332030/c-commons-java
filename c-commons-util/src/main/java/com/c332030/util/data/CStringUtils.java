@@ -1,6 +1,6 @@
 package com.c332030.util.data;
 
-import com.c332030.util.asserts.Assert;
+import com.c332030.util.asserts.CAssert;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
@@ -31,7 +31,7 @@ public class CStringUtils {
      * @author c332030
      */
     public static String getKey(Class<?> cls) {
-        Assert.notNull(cls, "Class can't be null");
+        CAssert.notNull(cls, "Class can't be null");
         return cls.getName();
     }
 

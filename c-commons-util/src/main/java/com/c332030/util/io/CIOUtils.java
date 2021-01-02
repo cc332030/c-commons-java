@@ -2,14 +2,16 @@ package com.c332030.util.io;
 
 import java.io.IOException;
 import java.io.InputStream;
-import java.nio.charset.StandardCharsets;
 
 import javax.annotation.Nonnull;
+
+import org.apache.commons.io.IOUtils;
 
 import com.c332030.constant.io.SizeUnitEnum;
 import com.c332030.model.io.Size;
 
 import static com.c332030.constant.io.ByteConstants.BYTES_OF_MB;
+import static java.nio.charset.StandardCharsets.UTF_8;
 
 /**
  * <p>
@@ -19,9 +21,11 @@ import static com.c332030.constant.io.ByteConstants.BYTES_OF_MB;
  * @author c332030
  * @version 1.0
  */
-public abstract class IOUtils extends org.apache.commons.io.IOUtils {
+public class CIOUtils {
 
     private static final int DEFAULT_SIZE = BYTES_OF_MB;
+
+    private CIOUtils() {}
 
     /**
      * <p>
@@ -34,7 +38,7 @@ public abstract class IOUtils extends org.apache.commons.io.IOUtils {
      * @author c332030
      */
     public static String toString(@Nonnull InputStream inputStream) throws IOException {
-        return toString(inputStream, StandardCharsets.UTF_8);
+        return IOUtils.toString(inputStream, UTF_8);
     }
 
     /**

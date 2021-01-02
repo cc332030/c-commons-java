@@ -10,7 +10,9 @@ import java.math.BigDecimal;
  * @author c332030（袁兴旺）
  * @version 1.0
  */
-public abstract class NumberUtils extends org.apache.commons.lang3.math.NumberUtils {
+public class CNumberUtils {
+
+    private CNumberUtils() {}
 
     /**
      * <p>

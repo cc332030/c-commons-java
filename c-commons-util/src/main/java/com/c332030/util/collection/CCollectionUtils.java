@@ -8,6 +8,8 @@ package com.c332030.util.collection;
  * @author c332030
  * @version 1.0
  */
-public abstract class CCollectionUtils {
+public class CCollectionUtils {
+
+    private CCollectionUtils() {}
 
 }

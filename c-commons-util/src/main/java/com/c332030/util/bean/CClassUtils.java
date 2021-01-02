@@ -10,9 +10,9 @@ import org.apache.commons.lang3.StringUtils;
  * @author c332030
  * @version 1.0
  */
-public class ClassUtils {
+public class CClassUtils {
 
-    private ClassUtils(){}
+    private CClassUtils(){}
 
     /**
      * <p>

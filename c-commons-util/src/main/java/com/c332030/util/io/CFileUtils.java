@@ -15,7 +15,7 @@ import lombok.NonNull;
 import lombok.val;
 import lombok.extern.slf4j.Slf4j;
 
-import com.c332030.util.asserts.Assert;
+import com.c332030.util.asserts.CAssert;
 import com.c332030.util.asserts.FileAssert;
 import com.c332030.util.asserts.MathAssert;
 
@@ -28,7 +28,9 @@ import com.c332030.util.asserts.MathAssert;
  * @version 1.0
  */
 @Slf4j
-public abstract class FileUtils extends org.apache.commons.io.FileUtils {
+public class CFileUtils {
+
+    private CFileUtils() {}
 
     /**
      * <p>
@@ -137,7 +139,7 @@ public abstract class FileUtils extends org.apache.commons.io.FileUtils {
         @NonNull BiFunction<String, Integer, File> getChildFile
     ) throws IOException {
 
-        Assert.state(size > 0, "size must greater then 0");
+        CAssert.state(size > 0, "size must greater then 0");
 
         FileAssert.notExists(file, "file not exists");
         FileAssert.notFile(file, "param file must be a file");
@@ -187,7 +189,7 @@ public abstract class FileUtils extends org.apache.commons.io.FileUtils {
      * @return 子文件集合
      * @throws IOException 异常
      * @author c332030
-     * @see FileUtils#split(File, int, BiFunction)
+     * @see CFileUtils#split(File, int, BiFunction)
      */
     public static List<File> split(
         @NonNull final File file,
@@ -206,7 +208,7 @@ public abstract class FileUtils extends org.apache.commons.io.FileUtils {
      * @return 子文件集合
      * @throws IOException 异常
      * @author c332030
-     * @see FileUtils#split(File, BiFunction)
+     * @see CFileUtils#split(File, BiFunction)
      */
     public static List<File> split(
         @NonNull final File file,
@@ -230,7 +232,7 @@ public abstract class FileUtils extends org.apache.commons.io.FileUtils {
      * @return 子文件集合
      * @throws IOException 异常
      * @author c332030
-     * @see FileUtils#split(File, BiFunction)
+     * @see CFileUtils#split(File, BiFunction)
      */
     public static List<File> split(
         @NonNull final File file
@@ -291,7 +293,7 @@ public abstract class FileUtils extends org.apache.commons.io.FileUtils {
      * @param file 文件
      * @throws IOException 异常
      * @author c332030
-     * @see FileUtils#merge(List, File)
+     * @see CFileUtils#merge(List, File)
      */
     public static void merge(
         @NonNull File[] files,

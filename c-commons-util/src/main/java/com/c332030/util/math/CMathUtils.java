@@ -8,7 +8,9 @@ package com.c332030.util.math;
  * @author c332030
  * @version 1.0
  */
-public abstract class MathUtils {
+public class CMathUtils {
+
+    private CMathUtils() {}
 
     /**
      * <p>
