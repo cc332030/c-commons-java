@@ -48,6 +48,30 @@ subprojects {
 
   dependencies {
 
+    // commons-lang3
+    compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
+    testCompileOnly group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
+
+    // commons-collections4
+    compileOnly group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
+    testCompileOnly group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
+
+    // commons-io
+    compileOnly group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
+    testCompileOnly group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
+
+    // commons-net
+    compileOnly group: 'commons-net', name: 'commons-net', version: versions.apache_commons_net
+    testCompileOnly group: 'commons-net', name: 'commons-net', version: versions.apache_commons_net
+
+    // gson
+    compileOnly group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
+    testCompileOnly group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
+
+    // guava
+    compileOnly group: 'com.google.guava', name: 'guava', version: versions.google_guava
+    testCompileOnly group: 'com.google.guava', name: 'guava', version: versions.google_guava
+
     // logback
     compileOnly group: 'ch.qos.logback', name: 'logback-core', version: versions.logback
     testCompileOnly group: 'ch.qos.logback', name: 'logback-core', version: versions.logback
