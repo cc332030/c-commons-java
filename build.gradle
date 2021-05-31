@@ -3,14 +3,7 @@ def ext = rootProject.ext
 def versions = ext.versions
 
 buildscript {
-
   apply from: 'config.gradle'
-
-  repositories {
-    maven {
-      url 'https://nexus.local.c332030.com/repository/maven-public/'
-    }
-  }
 }
 
 subprojects {
@@ -41,9 +34,7 @@ subprojects {
   }
 
   repositories {
-    maven {
-      url 'https://nexus.local.c332030.com/repository/maven-public/'
-    }
+    mavenCentral()
   }
 
   dependencies {
