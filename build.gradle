@@ -1,4 +1,3 @@
-
 def ext = rootProject.ext
 def versions = ext.versions
 
@@ -10,6 +9,7 @@ subprojects {
 
   apply plugin: 'java-library'
   apply plugin: 'maven-publish'
+  apply plugin: 'signing'
 
   group = ext.group
   version = ext.version
@@ -93,33 +93,65 @@ subprojects {
 // 测试配置
   test {
     // include '**/Test*.class'
-
     exclude '**/*Test*.class'
   }
 
   publishing {
     publications {
+
       maven(MavenPublication) {
         groupId project.group
         artifactId project.name
         version project.version
         from components.java
       }
-    }
 
-    repositories {
-      maven {
-        def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-        def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+      mavenJava(MavenPublication) {
+        pom {
 
-        credentials {
-          username ossrhUsername
-          password ossrhPassword
+          name = 'c-commons-java'
+          description = 'Java commons library'
+          url = 'https://c332030.com'
+          licenses {
+            license {
+              name = 'The Apache License, Version 2.0'
+              url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
+            }
+          }
+          developers {
+            developer {
+              id = 'c332030'
+              name = 'c332030'
+              email = 'c332030@gmail.com'
+            }
+          }
+          scm {
+            connection = 'scm:git:git://git@github.com:cc332030/c-commons-java.git'
+            developerConnection = 'scm:git:ssh://git@github.com:cc332030/c-commons-java.git'
+            url = 'https://c332030.com'
+          }
+
         }
       }
-    }
 
+    }
+  }
+
+  signing {
+    sign publishing.publications.mavenJava
+  }
+
+  repositories {
+    maven {
+      def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+      def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+      url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+      credentials {
+        username ossrhUsername
+        password ossrhPassword
+      }
+    }
   }
 
 }
