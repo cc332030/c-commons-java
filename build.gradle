@@ -106,15 +106,17 @@ subprojects {
 
     repositories {
       maven {
-        def releasesRepoUrl = "https://nexus.local.c332030.com/repository/maven-releases/"
-        def snapshotsRepoUrl = "https://nexus.local.c332030.com/repository/maven-snapshots/"
+        def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
         url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
 
         credentials {
-          username 'admin'
-          password '123456'
+          username ossrhUsername
+          password ossrhPassword
         }
       }
     }
+
   }
+
 }
