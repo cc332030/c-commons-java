@@ -96,10 +96,6 @@ subprojects {
     exclude '**/*Test*.class'
   }
 
-  signing {
-    sign publishing.publications.mavenJava
-  }
-
   publishing {
     publications {
 
@@ -153,6 +149,10 @@ subprojects {
       }
     }
 
+  }
+
+  signing {
+    sign publishing.publications.mavenJava
   }
 
 }
