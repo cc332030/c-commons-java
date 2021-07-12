@@ -2,6 +2,9 @@ package com.c332030.util.data;
 
 import java.math.BigDecimal;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: NumberUtils
@@ -10,9 +13,8 @@ import java.math.BigDecimal;
  * @author c332030（袁兴旺）
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CNumberUtils {
-
-    private CNumberUtils() {}
 
     /**
      * <p>

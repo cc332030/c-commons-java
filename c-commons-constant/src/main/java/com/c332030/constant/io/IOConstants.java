@@ -1,5 +1,8 @@
 package com.c332030.constant.io;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: IOConstants
@@ -8,6 +11,7 @@ package com.c332030.constant.io;
  * @author c332030
  * @version 1.0
  */
-public abstract class IOConstants {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class IOConstants {
 
 }

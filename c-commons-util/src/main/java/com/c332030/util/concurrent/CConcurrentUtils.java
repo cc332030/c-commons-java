@@ -5,6 +5,9 @@ import java.util.function.Supplier;
 
 import javax.annotation.Nonnull;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: ConcurrentUtils
@@ -13,9 +16,8 @@ import javax.annotation.Nonnull;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CConcurrentUtils {
-
-    private CConcurrentUtils() {}
 
     public static <E> E getWithSet(
         @Nonnull Object lockObject,

@@ -2,6 +2,9 @@ package com.c332030.util.collection;
 
 import java.util.LinkedHashMap;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: Maps
@@ -10,9 +13,8 @@ import java.util.LinkedHashMap;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CMaps {
-
-    private CMaps() {}
 
     /**
      * <p>
@@ -28,4 +30,5 @@ public class CMaps {
     public static <K, V> LinkedHashMap<K, V> newLinkedHashMap(int size) {
         return new LinkedHashMap<>(size);
     }
+
 }

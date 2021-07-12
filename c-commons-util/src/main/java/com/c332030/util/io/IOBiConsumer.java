@@ -16,4 +16,5 @@ import java.util.function.BiConsumer;
 public interface IOBiConsumer {
 
     void accept(byte[] bytes, int length) throws IOException;
+
 }

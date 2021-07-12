@@ -1,5 +1,8 @@
 package com.c332030.constant.time;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: DateSecondConstants 使用 Long 避免使用时装箱
@@ -8,7 +11,8 @@ package com.c332030.constant.time;
  * @author c332030
  * @version 1.0
  */
-public abstract class SecondConstants {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class SecondConstants {
 
     /**
      * 每分 秒数

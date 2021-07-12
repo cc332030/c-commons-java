@@ -1,5 +1,8 @@
 package com.c332030.constant.io;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: ByteConstans
@@ -8,7 +11,8 @@ package com.c332030.constant.io;
  * @author c332030
  * @version 1.0
  */
-public abstract class ByteConstants {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class ByteConstants {
 
     /**
      * 1 kb 字节数

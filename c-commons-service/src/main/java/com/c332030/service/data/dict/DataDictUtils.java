@@ -1,5 +1,8 @@
 package com.c332030.service.data.dict;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: DataDictUtils
@@ -8,7 +11,7 @@ package com.c332030.service.data.dict;
  * @author c332030
  * @version 1.0
  */
-public abstract class DataDictUtils {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class DataDictUtils {
 
-    protected DataDictUtils() {}
 }

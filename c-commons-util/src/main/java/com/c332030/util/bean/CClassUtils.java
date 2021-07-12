@@ -2,6 +2,9 @@ package com.c332030.util.bean;
 
 import org.apache.commons.lang3.StringUtils;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: ClassUtils
@@ -10,9 +13,8 @@ import org.apache.commons.lang3.StringUtils;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CClassUtils {
-
-    private CClassUtils(){}
 
     /**
      * <p>

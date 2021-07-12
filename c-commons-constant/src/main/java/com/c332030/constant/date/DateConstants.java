@@ -1,5 +1,8 @@
 package com.c332030.constant.date;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: DateConstants
@@ -8,6 +11,7 @@ package com.c332030.constant.date;
  * @author c332030
  * @version 1.0
  */
-public abstract class DateConstants {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class DateConstants {
 
 }

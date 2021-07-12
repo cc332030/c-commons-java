@@ -4,9 +4,8 @@ import java.time.LocalDateTime;
 import java.time.ZoneOffset;
 import java.util.Random;
 
-import lombok.extern.slf4j.Slf4j;
-
 import com.c332030.commons.id.IdGen;
+import lombok.extern.slf4j.Slf4j;
 
 import static com.c332030.util.data.CDateUtils.DATE_TIME_FORMATTER;
 
@@ -73,6 +72,7 @@ public class IdGenSnowFlakeImpl implements IdGen {
         } else {
             sequence = random();
         }
+
         lastMills = currentMills;
 
         return (currentMills - EPOCH_MILLS) << TIME_SHIFT

@@ -1,5 +1,8 @@
 package com.c332030.util.math;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: MathUtils
@@ -8,9 +11,8 @@ package com.c332030.util.math;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CMathUtils {
-
-    private CMathUtils() {}
 
     /**
      * <p>
