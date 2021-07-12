@@ -11,4 +11,5 @@ package com.c332030.model.exception;
 public class CException extends Exception {
 
     private static final long serialVersionUID = -9032000260569601097L;
+
 }
