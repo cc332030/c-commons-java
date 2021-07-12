@@ -76,7 +76,7 @@ public class IdGenSnowFlakeImpl implements IdGen {
         lastMills = currentMills;
 
         return (currentMills - EPOCH_MILLS) << TIME_SHIFT
-            | workerId << SEQUENCE_BITS
+            | (long) workerId << SEQUENCE_BITS
             | sequence
             ;
     }
