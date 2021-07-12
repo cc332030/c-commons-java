@@ -166,4 +166,9 @@ subprojects {
     }
   }
 
+  nexusStaging {
+    packageGroup = project.group + '.' + project.name
+    // packageGroup = 'com.c332030.c-commons-java'
+  }
+
 }
