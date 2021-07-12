@@ -1,16 +1,20 @@
-def ext = rootProject.ext
-def versions = ext.versions
-
 buildscript {
   apply from: 'config.gradle'
 }
 
+plugins {
+  id "io.codearte.nexus-staging" version "0.30.0"
+}
+
+def ext = rootProject.ext
+def versions = ext.versions
+
 subprojects {
 
   apply plugin: 'java-library'
+  apply plugin: 'idea'
   apply plugin: 'maven-publish'
   apply plugin: 'signing'
-  apply plugin: 'idea'
 
   group = ext.group
   version = ext.version
