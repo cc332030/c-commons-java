@@ -1,7 +1,9 @@
-package com.c332030.util;
+package com.c332030.util.bean;
 
 import com.c332030.constant.enumerable.sys.EqualEnum;
 import com.c332030.model.sys.IEmpty;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -11,7 +13,8 @@ import com.c332030.model.sys.IEmpty;
  * @author c332030
  * @version 1.0
  */
-public abstract class Tools {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class CObjectUtils {
 
     /**
      * <p>
