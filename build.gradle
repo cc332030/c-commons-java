@@ -102,9 +102,15 @@ subprojects {
     resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
   }
 
-// 测试配置
+  sourceSets {
+    main {
+      resources {
+        srcDir 'src/main/java'
+      }
+    }
+  }
+
   test {
-    // include '**/Test*.class'
     exclude '**/*Test*.class'
   }
 
@@ -123,7 +129,7 @@ subprojects {
 
           name = 'c-commons-java'
           description = 'Java commons library'
-          url = 'https://c332030.com'
+          url = "https://github.com/cc332030/${project.name}"
           licenses {
             license {
               name = 'The Apache License, Version 2.0'
@@ -138,9 +144,9 @@ subprojects {
             }
           }
           scm {
-            connection = 'scm:git:git://git@github.com:cc332030/c-commons-java.git'
-            developerConnection = 'scm:git:ssh://git@github.com:cc332030/c-commons-java.git'
-            url = 'https://c332030.com'
+            connection = "scm:git:git://git@github.com:cc332030/${project.name}.git"
+            developerConnection = "scm:git:ssh://git@github.com:cc332030/${project.name}.git"
+            url = "https://github.com/cc332030/${project.name}"
           }
 
         }
