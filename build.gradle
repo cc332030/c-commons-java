@@ -27,10 +27,15 @@ subprojects {
   jar {
     enabled = true
 
+    into("META-INF/resources") {
+      from("src/main/webapp")
+    }
+
     into("META-INF/maven/$project.group/$project.name") {
       from { generatePomFileForMavenPublication }
       rename ".*", "pom.xml"
     }
+
   }
 
   java {
