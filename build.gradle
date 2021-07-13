@@ -1,13 +1,18 @@
-def ext = rootProject.ext
-def versions = ext.versions
-
 buildscript {
   apply from: 'config.gradle'
 }
 
+plugins {
+  id "io.codearte.nexus-staging" version "0.30.0"
+}
+
+def ext = rootProject.ext
+def versions = ext.versions
+
 subprojects {
 
   apply plugin: 'java-library'
+  apply plugin: 'idea'
   apply plugin: 'maven-publish'
   apply plugin: 'signing'
 
@@ -31,6 +36,13 @@ subprojects {
   java {
     withJavadocJar()
     withSourcesJar()
+  }
+
+  idea {
+    module {
+      downloadJavadoc = false
+      downloadSources = false
+    }
   }
 
   repositories {
@@ -153,6 +165,12 @@ subprojects {
 
   signing {
     sign publishing.publications.mavenJava
+  }
+
+  nexusStaging {
+    packageGroup = project.group + '.' + project.name
+    // packageGroup = 'com.c332030.c-commons-java'
+    stagingProfileId = "yourStagingProfileId"
   }
 
 }
