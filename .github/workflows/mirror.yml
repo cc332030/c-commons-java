@@ -11,3 +11,4 @@ jobs:
         timeout-minutes: 2
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          COMMAND: ${{ secrets.GRADLE_PUBLISH_COMMAND }}
