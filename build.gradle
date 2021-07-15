@@ -9,7 +9,7 @@ plugins {
 def ext = rootProject.ext
 def versions = ext.versions
 
-subprojects {
+allprojects {
 
   apply plugin: 'java-library'
   apply plugin: 'idea'
