@@ -1,7 +1,9 @@
 package com.c332030.util.collection;
 
 import com.c332030.constant.enumerable.sys.EqualEnum;
-import com.c332030.util.Tools;
+import com.c332030.util.bean.CObjectUtils;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -11,9 +13,8 @@ import com.c332030.util.Tools;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CArrayUtils{
-
-    private CArrayUtils() {}
 
     /**
      * <p>
@@ -50,7 +51,7 @@ public class CArrayUtils{
         }
 
         for(int i = 0; i < length; i++) {
-            if(! Tools.equals(objects1[i], objects2[i], mark)) {
+            if(! CObjectUtils.equals(objects1[i], objects2[i], mark)) {
                 return false;
             }
         }

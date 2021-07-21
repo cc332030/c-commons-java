@@ -9,6 +9,8 @@ import org.apache.commons.io.IOUtils;
 
 import com.c332030.constant.io.SizeUnitEnum;
 import com.c332030.model.io.Size;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import static com.c332030.constant.io.ByteConstants.BYTES_OF_MB;
 import static java.nio.charset.StandardCharsets.UTF_8;
@@ -21,11 +23,10 @@ import static java.nio.charset.StandardCharsets.UTF_8;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CIOUtils {
 
     private static final int DEFAULT_SIZE = BYTES_OF_MB;
-
-    private CIOUtils() {}
 
     /**
      * <p>

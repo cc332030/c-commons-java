@@ -1,6 +1,8 @@
 package com.c332030.util.data;
 
 import com.c332030.util.asserts.CAssert;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 import static org.apache.commons.lang3.StringUtils.EMPTY;
 import static org.apache.commons.lang3.StringUtils.isEmpty;
@@ -13,13 +15,12 @@ import static org.apache.commons.lang3.StringUtils.isEmpty;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CStringUtils {
 
     public static final String FOUR_SPACE = "    ";
 
     public static final String EIGHT_SPACE = FOUR_SPACE + FOUR_SPACE;
-
-    private CStringUtils() {}
 
     /**
      * <p>

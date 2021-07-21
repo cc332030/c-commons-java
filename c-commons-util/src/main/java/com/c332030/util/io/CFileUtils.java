@@ -3,21 +3,14 @@ package com.c332030.util.io;
 import java.io.*;
 import java.nio.file.FileAlreadyExistsException;
 import java.nio.file.NotDirectoryException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.function.BiFunction;
 
 import org.apache.commons.lang3.StringUtils;
 
-import lombok.Cleanup;
-import lombok.NonNull;
-import lombok.val;
+import com.c332030.util.asserts.*;
+import lombok.*;
 import lombok.extern.slf4j.Slf4j;
-
-import com.c332030.util.asserts.CAssert;
-import com.c332030.util.asserts.FileAssert;
-import com.c332030.util.asserts.MathAssert;
 
 /**
  * <p>
@@ -28,9 +21,8 @@ import com.c332030.util.asserts.MathAssert;
  * @version 1.0
  */
 @Slf4j
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CFileUtils {
-
-    private CFileUtils() {}
 
     /**
      * <p>

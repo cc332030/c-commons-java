@@ -4,6 +4,9 @@ import java.io.File;
 
 import javax.annotation.Nullable;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: FileAssert
@@ -12,9 +15,8 @@ import javax.annotation.Nullable;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class FileAssert {
-
-    private FileAssert() {}
 
     /**
      * <p>

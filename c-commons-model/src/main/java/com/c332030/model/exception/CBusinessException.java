@@ -11,4 +11,5 @@ package com.c332030.model.exception;
 public class CBusinessException extends CException {
 
     private static final long serialVersionUID = 1938613507770431973L;
+
 }

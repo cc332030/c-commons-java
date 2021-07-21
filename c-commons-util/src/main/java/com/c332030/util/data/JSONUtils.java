@@ -1,5 +1,8 @@
 package com.c332030.util.data;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: JSONUtils
@@ -8,9 +11,8 @@ package com.c332030.util.data;
  * @author c332030（袁兴旺）
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class JSONUtils {
-
-    private JSONUtils() {}
 
     /**
      * <p>

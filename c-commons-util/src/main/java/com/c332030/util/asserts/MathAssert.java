@@ -1,5 +1,8 @@
 package com.c332030.util.asserts;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: MathAssert
@@ -8,9 +11,8 @@ package com.c332030.util.asserts;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class MathAssert {
-
-    private MathAssert() {}
 
     /**
      * <p>

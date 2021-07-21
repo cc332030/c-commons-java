@@ -6,10 +6,9 @@ import java.util.function.Function;
 
 import org.apache.commons.collections4.CollectionUtils;
 
-import lombok.val;
-
 import com.c332030.model.page.IPage;
 import com.c332030.model.page.PageQuery;
+import lombok.*;
 
 /**
  * <p>
@@ -19,11 +18,10 @@ import com.c332030.model.page.PageQuery;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class PageUtils {
 
     private static final int DEFAULT_PAGE_SIZE = 1000;
-
-    private PageUtils() {}
 
     /**
      * <p>

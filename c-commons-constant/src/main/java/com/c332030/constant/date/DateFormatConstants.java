@@ -1,5 +1,8 @@
 package com.c332030.constant.date;
 
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+
 /**
  * <p>
  * Description: DateFormatConstants
@@ -8,7 +11,8 @@ package com.c332030.constant.date;
  * @author c332030
  * @version 1.0
  */
-public abstract class DateFormatConstants {
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
+public class DateFormatConstants {
 
     public static final String DATE_STR = "yyyyMMdd";
 

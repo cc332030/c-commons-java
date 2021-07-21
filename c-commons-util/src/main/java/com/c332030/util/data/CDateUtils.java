@@ -15,12 +15,10 @@ import org.apache.commons.lang3.time.FastDateFormat;
 
 import com.google.common.collect.ImmutableList;
 
-import com.c332030.util.collection.CMapUtils;
-
-import static com.c332030.constant.date.DateFormatConstants.DATE_FORMAT_STR;
-import static com.c332030.constant.date.DateFormatConstants.DATE_TIME_FORMAT_STR;
-import static com.c332030.constant.time.TimeConstants.UTC;
-import static com.c332030.constant.time.TimeConstants.UTC8;
+import com.c332030.constant.date.DateFormatConstants;
+import com.c332030.constant.time.TimeConstants;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
 
 /**
  * <p>
@@ -30,9 +28,8 @@ import static com.c332030.constant.time.TimeConstants.UTC8;
  * @author c332030
  * @version 1.0
  */
+@NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class CDateUtils {
-
-    private CDateUtils() {}
 
     /**
      * <p>
@@ -53,7 +50,7 @@ public class CDateUtils {
      * </p>
      *
      * @param pattern 格式
-     * @return java.text.DateFormat
+     * @return org.apache.commons.lang3.time.FastDateFormat
      * @author c332030
      */
     public static FastDateFormat newFastDateFormat(@Nonnull String pattern) {
@@ -69,12 +66,13 @@ public class CDateUtils {
 
     public static final List<String> ZONE_ID_LIST;
     static {
+
         ImmutableList.Builder<String> builder = ImmutableList.builder();
         int i = 0;
         while (i < 24) {
 
             int zone = indexToZone(i++);
-            String zoneStr = UTC;
+            String zoneStr = TimeConstants.UTC;
             if(zone > 0) {
                 zoneStr += "+" + zone;
             } else if(zone < 0) {
@@ -105,7 +103,7 @@ public class CDateUtils {
      * @author c332030
      */
     public static ZoneId getZoneId(@Nonnull String zoneId) {
-        return CMapUtils.getWithPutSync(ZONE_ID_MAP, zoneId, ZoneId::of);
+        return ZONE_ID_MAP.computeIfAbsent(zoneId, ZoneId::of);
     }
 
     public static ZoneId getZoneId(int zone) {
@@ -118,11 +116,11 @@ public class CDateUtils {
      * </p>
      *
      * @param pattern 格式
-     * @return java.text.DateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter newDateTimeFormatter(@Nonnull String pattern) {
-        return newDateTimeFormatter(pattern, Locale.CHINA, UTC8);
+        return newDateTimeFormatter(pattern, Locale.CHINA, TimeConstants.UTC8);
     }
 
     /**
@@ -133,7 +131,7 @@ public class CDateUtils {
      * @param pattern 格式
      * @param locale 区域
      * @param zoneId 时区
-     * @return java.text.DateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter newDateTimeFormatter(
@@ -153,7 +151,7 @@ public class CDateUtils {
      * @param pattern 格式
      * @param locale 区域
      * @param zoneId 时区
-     * @return java.text.DateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter newDateTimeFormatter(
@@ -177,12 +175,12 @@ public class CDateUtils {
      * </p>
      *
      * @param pattern 表达式
-     * @return org.apache.commons.lang3.time.FastDateFormat
+     * @return java.text.DateFormat
      * @author c332030
      */
     public static DateFormat getDateFormat(@Nonnull String pattern) {
-        return CMapUtils.getWithPutSync(DATE_FORMAT_MAP, pattern,
-            () -> ThreadLocal.withInitial(() -> newDateFormat(pattern))
+        return DATE_FORMAT_MAP.computeIfAbsent(pattern,
+            (e) -> ThreadLocal.withInitial(() -> newDateFormat(pattern))
         ).get();
     }
 
@@ -201,7 +199,7 @@ public class CDateUtils {
      * @author c332030
      */
     public static FastDateFormat getFastDateFormat(@Nonnull String pattern) {
-        return CMapUtils.getWithPutSync(FAST_DATE_FORMAT_MAP, pattern, () -> newFastDateFormat(pattern));
+        return FAST_DATE_FORMAT_MAP.computeIfAbsent(pattern, (e) -> newFastDateFormat(pattern));
     }
 
     /**
@@ -215,11 +213,11 @@ public class CDateUtils {
      * </p>
      *
      * @param pattern 表达式
-     * @return org.apache.commons.lang3.time.FastDateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter getDateTimeFormatter(@Nonnull String pattern) {
-        return getDateTimeFormatter(pattern, Locale.CHINA, UTC8);
+        return getDateTimeFormatter(pattern, Locale.CHINA, TimeConstants.UTC8);
     }
 
     /**
@@ -230,7 +228,7 @@ public class CDateUtils {
      * @param pattern 格式
      * @param locale 区域
      * @param zoneId 时区
-     * @return org.apache.commons.lang3.time.FastDateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter getDateTimeFormatter(@Nonnull String pattern, Locale locale, int zoneId) {
@@ -245,7 +243,7 @@ public class CDateUtils {
      * @param pattern 格式
      * @param locale 区域
      * @param zoneId 时区
-     * @return org.apache.commons.lang3.time.FastDateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter getDateTimeFormatter(@Nonnull String pattern, Locale locale, String zoneId) {
@@ -261,17 +259,16 @@ public class CDateUtils {
      * @param pattern 格式
      * @param locale 区域
      * @param zoneId 时区
-     * @return org.apache.commons.lang3.time.FastDateFormat
+     * @return java.time.format.DateTimeFormatter
      * @author c332030
      */
     public static DateTimeFormatter getDateTimeFormatter(@Nonnull String pattern, Locale locale, ZoneId zoneId) {
-        return CMapUtils.getWithPutSync(DATE_TIME_FORMATTER_MAP, pattern,
-            () -> newDateTimeFormatter(pattern, locale, zoneId)
-        );
+        return DATE_TIME_FORMATTER_MAP.computeIfAbsent(pattern,
+            (e) -> newDateTimeFormatter(pattern, locale, zoneId));
     }
 
-    public static final FastDateFormat FAST_DATE_FORMAT = getFastDateFormat(DATE_FORMAT_STR);
-    public static final FastDateFormat FAST_DATE_TIME_FORMAT = getFastDateFormat(DATE_TIME_FORMAT_STR);
+    public static final FastDateFormat FAST_DATE_FORMAT = getFastDateFormat(DateFormatConstants.DATE_FORMAT_STR);
+    public static final FastDateFormat FAST_DATE_TIME_FORMAT = getFastDateFormat(DateFormatConstants.DATE_TIME_FORMAT_STR);
 
     /**
      * <p>
@@ -313,8 +310,8 @@ public class CDateUtils {
         return FAST_DATE_TIME_FORMAT.format(date);
     }
 
-    public static final DateTimeFormatter DATE_FORMATTER = getDateTimeFormatter(DATE_FORMAT_STR);
-    public static final DateTimeFormatter DATE_TIME_FORMATTER = getDateTimeFormatter(DATE_TIME_FORMAT_STR);
+    public static final DateTimeFormatter DATE_FORMATTER = getDateTimeFormatter(DateFormatConstants.DATE_FORMAT_STR);
+    public static final DateTimeFormatter DATE_TIME_FORMATTER = getDateTimeFormatter(DateFormatConstants.DATE_TIME_FORMAT_STR);
 
     /**
      * <p>

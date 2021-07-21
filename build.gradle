@@ -9,7 +9,7 @@ plugins {
 def ext = rootProject.ext
 def versions = ext.versions
 
-subprojects {
+allprojects {
 
   apply plugin: 'java-library'
   apply plugin: 'idea'
@@ -26,10 +26,15 @@ subprojects {
   jar {
     enabled = true
 
+    into("META-INF/resources") {
+      from("src/main/webapp")
+    }
+
     into("META-INF/maven/$project.group/$project.name") {
       from { generatePomFileForMavenPublication }
       rename ".*", "pom.xml"
     }
+
   }
 
   java {
@@ -101,9 +106,15 @@ subprojects {
     resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
   }
 
-// 测试配置
+  sourceSets {
+    main {
+      resources {
+        srcDir 'src/main/java'
+      }
+    }
+  }
+
   test {
-    // include '**/Test*.class'
     exclude '**/*Test*.class'
   }
 
@@ -122,7 +133,7 @@ subprojects {
 
           name = 'c-commons-java'
           description = 'Java commons library'
-          url = 'https://c332030.com'
+          url = "https://github.com/cc332030/${rootProject.name}"
           licenses {
             license {
               name = 'The Apache License, Version 2.0'
@@ -137,36 +148,37 @@ subprojects {
             }
           }
           scm {
-            connection = 'scm:git:git://git@github.com:cc332030/c-commons-java.git'
-            developerConnection = 'scm:git:ssh://git@github.com:cc332030/c-commons-java.git'
-            url = 'https://c332030.com'
+            connection = "scm:git:git://git@github.com:cc332030/${rootProject.name}.git"
+            developerConnection = "scm:git:ssh://git@github.com:cc332030/${rootProject.name}.git"
+            url = "https://github.com/cc332030/${rootProject.name}"
           }
 
         }
       }
 
     }
+
+    repositories {
+      maven {
+        def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
+        def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
+        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
+
+        credentials {
+          username ossrhUsername
+          password ossrhPassword
+        }
+      }
+    }
+
   }
 
   signing {
-    sign publishing.publications.mavenJava
-  }
-
-  repositories {
-    maven {
-      def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-      def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-      url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-      credentials {
-        username ossrhUsername
-        password ossrhPassword
-      }
-    }
+    sign publishing.publications
   }
 
   nexusStaging {
-    packageGroup = project.group + '.' + project.name
+    packageGroup = project.group + '.' + rootProject.name
     // packageGroup = 'com.c332030.c-commons-java'
     stagingProfileId = "yourStagingProfileId"
   }
