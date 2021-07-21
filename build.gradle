@@ -16,8 +16,7 @@ subprojects {
   apply plugin: 'maven-publish'
   apply plugin: 'signing'
 
-  group = ext.group
-  version = ext.version
+  group = 'com.c332030.commons'
 
   sourceCompatibility = JavaVersion.VERSION_11
   targetCompatibility = JavaVersion.VERSION_11
