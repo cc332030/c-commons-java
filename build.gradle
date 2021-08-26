@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 buildscript {
   apply from: 'config.gradle'
 }
@@ -6,9 +8,6 @@ plugins {
   id "io.codearte.nexus-staging" version "0.30.0"
 }
 
-def ext = rootProject.ext
-def versions = ext.versions
-
 allprojects {
 
   apply plugin: 'java-library'
@@ -16,87 +15,51 @@ allprojects {
   apply plugin: 'maven-publish'
   apply plugin: 'signing'
 
-  sourceCompatibility = JavaVersion.VERSION_11
-  targetCompatibility = JavaVersion.VERSION_11
-
-  [compileJava, compileTestJava, javadoc]*.options*.encoding = ext.charset
-
-  jar {
-    enabled = true
-
-    into("META-INF/resources") {
-      from("src/main/webapp")
-    }
-  }
-
-  java {
-    withJavadocJar()
-    withSourcesJar()
-  }
-
-  idea {
-    module {
-      downloadJavadoc = false
-      downloadSources = false
-    }
-  }
-
-  repositories {
-    maven {
-      url 'https://oss.sonatype.org/content/groups/public/'
-    }
-    mavenCentral()
-  }
-
   dependencies {
 
     // commons-lang3
-    compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
-    testCompileOnly group: 'org.apache.commons', name: 'commons-lang3', version: versions.apache_commons_lang3
+    compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_version
+    testCompileOnly group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_version
 
     // commons-collections4
-    compileOnly group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
-    testCompileOnly group: 'org.apache.commons', name: 'commons-collections4', version: versions.apache_commons_collections
+    compileOnly group: 'org.apache.commons', name: 'commons-collections4', version: commons_collections_version
+    testCompileOnly group: 'org.apache.commons', name: 'commons-collections4', version: commons_collections_version
 
     // commons-io
-    compileOnly group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
-    testCompileOnly group: 'commons-io', name: 'commons-io', version: versions.apache_commons_io
+    compileOnly group: 'commons-io', name: 'commons-io', version: commons_io_version
+    testCompileOnly group: 'commons-io', name: 'commons-io', version: commons_io_version
 
     // commons-net
-    compileOnly group: 'commons-net', name: 'commons-net', version: versions.apache_commons_net
-    testCompileOnly group: 'commons-net', name: 'commons-net', version: versions.apache_commons_net
+    compileOnly group: 'commons-net', name: 'commons-net', version: commons_net_version
+    testCompileOnly group: 'commons-net', name: 'commons-net', version: commons_net_version
 
     // gson
-    compileOnly group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
-    testCompileOnly group: 'com.google.code.gson', name: 'gson', version: versions.google_gson
+    compileOnly group: 'com.google.code.gson', name: 'gson', version: gson_version
+    testCompileOnly group: 'com.google.code.gson', name: 'gson', version: gson_version
 
     // guava
-    compileOnly group: 'com.google.guava', name: 'guava', version: versions.google_guava
-    testCompileOnly group: 'com.google.guava', name: 'guava', version: versions.google_guava
+    compileOnly group: 'com.google.guava', name: 'guava', version: guava_version
+    testCompileOnly group: 'com.google.guava', name: 'guava', version: guava_version
 
     // logback
-    compileOnly group: 'ch.qos.logback', name: 'logback-core', version: versions.logback
-    testCompileOnly group: 'ch.qos.logback', name: 'logback-core', version: versions.logback
+    compileOnly group: 'ch.qos.logback', name: 'logback-core', version: logback_version
+    testCompileOnly group: 'ch.qos.logback', name: 'logback-core', version: logback_version
 
-    compileOnly group: 'ch.qos.logback', name: 'logback-classic', version: versions.logback
-    testCompileOnly group: 'ch.qos.logback', name: 'logback-classic', version: versions.logback
+    compileOnly group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
+    testCompileOnly group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
 
-    testImplementation group: 'junit', name: 'junit', version: versions.junit
+    testImplementation group: 'junit', name: 'junit', version: junit_version
 
     // lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombok_version
+    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok_version
 
-    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: versions.lombok
-    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: versions.lombok
+    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: lombok_version
+    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok_version
 
   }
 
-  // 实时更新 snapshots
-  configurations.all {
-    resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
-    resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
-  }
+  [compileJava, compileTestJava, javadoc]*.options*.encoding = charset
 
   sourceSets {
     main {
@@ -108,6 +71,65 @@ allprojects {
 
   test {
     exclude '**/*Test*.class'
+  }
+
+  java {
+    withJavadocJar()
+    withSourcesJar()
+    toolchain {
+      languageVersion = JavaLanguageVersion.of(jdk_version)
+      vendor = JvmVendorSpec.ADOPTOPENJDK
+      implementation = JvmImplementation.J9
+    }
+  }
+
+  jar {
+    enabled = true
+    into("META-INF/resources") {
+      from("src/main/webapp")
+    }
+  }
+
+  idea {
+    module {
+      downloadJavadoc = false
+      downloadSources = false
+    }
+  }
+
+  // 实时更新 snapshots
+  configurations.all {
+    resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
+    resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
+  }
+
+  repositories {
+    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
+
+      maven {
+        url 'https://maven.aliyun.com/repository/public'
+      }
+      maven {
+        credentials {
+          username aliyunPackagesUsername
+          password aliyunPackagesPassword
+        }
+        url 'https://packages.aliyun.com/maven/repository/2011805-snapshot-nunUNu'
+      }
+      maven {
+        credentials {
+          username aliyunPackagesUsername
+          password aliyunPackagesPassword
+        }
+        url 'https://packages.aliyun.com/maven/repository/2011805-release-MMUG60'
+      }
+    } else {
+
+      mavenCentral()
+      maven {
+        url 'https://oss.sonatype.org/content/groups/public/'
+      }
+    }
   }
 
   publishing {
