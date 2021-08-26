@@ -4,6 +4,6 @@ dependencies {
   api project(':c-commons-model')
 
   // cglib
-  api group: 'cglib', name: 'cglib', version: versions.cglib
+  api group: 'cglib', name: 'cglib', version: cglib_version
 
 }

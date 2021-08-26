@@ -6,6 +6,6 @@ dependencies {
 
     api project(':c-commons-util')
 
-    api group: 'org.reflections', name: 'reflections', version: versions.reflections
+    api group: 'org.reflections', name: 'reflections', version: reflections_version
 
 }

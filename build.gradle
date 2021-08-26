@@ -1,9 +1,5 @@
 import org.apache.tools.ant.taskdefs.condition.Os
 
-buildscript {
-  apply from: 'config.gradle'
-}
-
 plugins {
   id "io.codearte.nexus-staging" version "0.30.0"
 }
