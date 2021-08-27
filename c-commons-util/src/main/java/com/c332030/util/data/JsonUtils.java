@@ -12,7 +12,7 @@ import lombok.NoArgsConstructor;
  * @version 1.0
  */
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
-public class JSONUtils {
+public class JsonUtils {
 
     /**
      * <p>
@@ -24,7 +24,7 @@ public class JSONUtils {
      * @author c332030（袁兴旺）
      */
     public static String toJson(Object obj) {
-        return GSONUtils.toJson(obj);
+        return GsonUtils.toJson(obj);
     }
 
     /**
@@ -39,7 +39,7 @@ public class JSONUtils {
      * @author c332030
      */
     public static <T> T fromJson(String jsonStr, Class<T> tClass) {
-        return GSONUtils.fromJson(jsonStr, tClass);
+        return GsonUtils.fromJson(jsonStr, tClass);
     }
 
 }
