@@ -89,6 +89,14 @@ allprojects {
     }
   }
 
+  release {
+    git {
+      requireBranch = 'main'
+      pushToRemote = 'origin'
+      signTag = true
+    }
+  }
+
 //  configurations.all {
 //    resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
 //    resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
