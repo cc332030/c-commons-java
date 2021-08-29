@@ -184,9 +184,9 @@ allprojects {
   }
 
   nexusStaging {
-    packageGroup = project.group + '.' + rootProject.name
-    // packageGroup = 'com.c332030.c-commons-java'
-    stagingProfileId = "yourStagingProfileId"
+    packageGroup = 'com.c332030'
+    username ossrhUsername
+    password ossrhPassword
   }
 
 }
