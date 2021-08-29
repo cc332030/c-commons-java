@@ -125,7 +125,7 @@ allprojects {
         url 'https://oss.sonatype.org/content/repositories/snapshots/'
       }
       maven {
-        url '\thttps://oss.sonatype.org/service/local/repositories/releases/content/'
+        url 'https://oss.sonatype.org/service/local/repositories/releases/content/'
       }
     }
   }
