@@ -17,4 +17,4 @@ jobs:
           GPG_SIGN_KEY: ${{ secrets.GPG_SIGN_KEY }}
           OSSRH_USERNAME: ${{ secrets.USER }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
-          GRADLE_PUBLISH_COMMAND: ${{ secrets.GRADLEW }} publish
+          GRADLE_GNUPG_COMMAND: ${{ secrets.GRADLEW }} publish
