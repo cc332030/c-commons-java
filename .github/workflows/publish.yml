@@ -13,6 +13,7 @@ jobs:
           java-version: '11'
           distribution: 'adopt-openj9'
           architecture: x64
+      - run: ${{ secrets.JAVA_HOME }}
       - uses: cc332030/gradle-publish-action@v0.0.1
         timeout-minutes: 30
         env:
