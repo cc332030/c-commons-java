@@ -12,45 +12,29 @@ allprojects {
 
   dependencies {
 
-    // commons-lang3
-    compileOnly group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_version
-    testCompileOnly group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_version
-
-    // commons-collections4
-    compileOnly libs.collections
-    testCompileOnly libs.collections
-
-    // commons-io
-    compileOnly group: 'commons-io', name: 'commons-io', version: commons_io_version
-    testCompileOnly group: 'commons-io', name: 'commons-io', version: commons_io_version
-
-    // commons-net
-    compileOnly group: 'commons-net', name: 'commons-net', version: commons_net_version
-    testCompileOnly group: 'commons-net', name: 'commons-net', version: commons_net_version
+    // commons
+    compileOnly libs.bundles.commons
+    testCompileOnly libs.bundles.commons
 
     // gson
-    compileOnly group: 'com.google.code.gson', name: 'gson', version: gson_version
-    testCompileOnly group: 'com.google.code.gson', name: 'gson', version: gson_version
+    compileOnly libs.gson
+    testCompileOnly libs.gson
 
     // guava
-    compileOnly group: 'com.google.guava', name: 'guava', version: guava_version
-    testCompileOnly group: 'com.google.guava', name: 'guava', version: guava_version
+    compileOnly libs.guava
+    testCompileOnly libs.guava
 
     // logback
-    compileOnly group: 'ch.qos.logback', name: 'logback-core', version: logback_version
-    testCompileOnly group: 'ch.qos.logback', name: 'logback-core', version: logback_version
-
-    compileOnly group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
-    testCompileOnly group: 'ch.qos.logback', name: 'logback-classic', version: logback_version
+    compileOnly libs.logback.classic
+    testCompileOnly libs.logback.classic
 
     testImplementation group: 'junit', name: 'junit', version: junit_version
 
     // lombok
-    compileOnly group: 'org.projectlombok', name: 'lombok', version: lombok_version
-    annotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok_version
-
-    testCompileOnly group: 'org.projectlombok', name: 'lombok', version: lombok_version
-    testAnnotationProcessor group: 'org.projectlombok', name: 'lombok', version: lombok_version
+    compileOnly libs.lombok
+    annotationProcessor libs.lombok
+    testCompileOnly libs.lombok
+    testAnnotationProcessor libs.lombok
 
   }
 
