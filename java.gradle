@@ -1,4 +1,6 @@
 
+def isSnapshot = version.endsWith("SNAPSHOT")
+
 [compileJava, compileTestJava, javadoc]*.options*.encoding = charset
 
 test {
@@ -6,7 +8,11 @@ test {
 }
 
 java {
-  withJavadocJar()
+
+  if(!isSnapshot) {
+    withJavadocJar()
+  }
+
   withSourcesJar()
   toolchain {
     languageVersion = JavaLanguageVersion.of(jdk_version)
