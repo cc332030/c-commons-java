@@ -1,11 +1,10 @@
 package com.c332030.commons.id.test;
 
-import org.junit.Test;
-
-import lombok.extern.slf4j.Slf4j;
+import org.junit.jupiter.api.Test;
 
 import com.c332030.commons.id.IdGen;
 import com.c332030.commons.id.impl.IdGenSnowFlakeImpl;
+import lombok.extern.slf4j.Slf4j;
 
 /**
  * <p>

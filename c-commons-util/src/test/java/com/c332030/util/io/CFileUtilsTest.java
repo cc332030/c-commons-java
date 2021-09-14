@@ -6,7 +6,7 @@ import java.io.IOException;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import org.junit.Test;
+import org.junit.jupiter.api.Test;
 
 import lombok.SneakyThrows;
 import lombok.val;

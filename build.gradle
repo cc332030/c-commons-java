@@ -12,25 +12,20 @@ allprojects {
 
   dependencies {
 
-    // commons
     compileOnly libs.bundles.commons
     testCompileOnly libs.bundles.commons
 
-    // gson
     compileOnly libs.gson
     testCompileOnly libs.gson
 
-    // guava
     compileOnly libs.guava
     testCompileOnly libs.guava
 
-    // logback
     compileOnly libs.logback.classic
     testCompileOnly libs.logback.classic
 
-    testImplementation group: 'junit', name: 'junit', version: junit_version
+    testImplementation libs.jupiter
 
-    // lombok
     compileOnly libs.lombok
     annotationProcessor libs.lombok
     testCompileOnly libs.lombok
