@@ -1,4 +1,3 @@
-import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
   id 'net.researchgate.release' version '2.8.1'
@@ -18,8 +17,8 @@ allprojects {
     testCompileOnly group: 'org.apache.commons', name: 'commons-lang3', version: commons_lang_version
 
     // commons-collections4
-    compileOnly group: 'org.apache.commons', name: 'commons-collections4', version: commons_collections_version
-    testCompileOnly group: 'org.apache.commons', name: 'commons-collections4', version: commons_collections_version
+    compileOnly libs.collections
+    testCompileOnly libs.collections
 
     // commons-io
     compileOnly group: 'commons-io', name: 'commons-io', version: commons_io_version
@@ -55,134 +54,12 @@ allprojects {
 
   }
 
-  [compileJava, compileTestJava, javadoc]*.options*.encoding = charset
-
-  test {
-    exclude '**/*Test*.class'
-  }
-
-  java {
-    withJavadocJar()
-    withSourcesJar()
-    toolchain {
-      languageVersion = JavaLanguageVersion.of(jdk_version)
-      vendor = JvmVendorSpec.ADOPTOPENJDK
-      implementation = JvmImplementation.J9
-    }
-  }
-
-  jar {
-    enabled = true
-    into("META-INF/resources") {
-      from("src/main/webapp")
-    }
-  }
-
-  idea {
-    module {
-      downloadJavadoc = false
-      downloadSources = false
-    }
-  }
-
-  release {
-    git {
-      requireBranch = 'main'
-      pushToRemote = 'origin'
-      signTag = true
-    }
-  }
-
 //  configurations.all {
 //    resolutionStrategy.cacheDynamicVersionsFor 1, 'seconds'
 //    resolutionStrategy.cacheChangingModulesFor 1, 'seconds'
 //  }
 
-  repositories {
-    if (Os.isFamily(Os.FAMILY_WINDOWS)) {
-
-      maven {
-        url 'https://maven.aliyun.com/repository/public'
-      }
-      maven {
-        credentials {
-          username aliyunPackagesUsername
-          password aliyunPackagesPassword
-        }
-        url 'https://packages.aliyun.com/maven/repository/2011805-snapshot-nunUNu'
-      }
-      maven {
-        credentials {
-          username aliyunPackagesUsername
-          password aliyunPackagesPassword
-        }
-        url 'https://packages.aliyun.com/maven/repository/2011805-release-MMUG60'
-      }
-    } else {
-
-      mavenCentral()
-      maven {
-        url 'https://oss.sonatype.org/content/repositories/snapshots/'
-      }
-      maven {
-        url 'https://oss.sonatype.org/service/local/repositories/releases/content/'
-      }
-    }
-  }
-
-  publishing {
-    publications {
-
-      mavenJava(MavenPublication) {
-
-        from components.java
-
-        pom {
-
-          name = 'c-commons-java'
-          description = 'Java commons library'
-          url = "https://github.com/cc332030/${rootProject.name}"
-          licenses {
-            license {
-              name = 'The Apache License, Version 2.0'
-              url = 'http://www.apache.org/licenses/LICENSE-2.0.txt'
-            }
-          }
-          developers {
-            developer {
-              id = 'c332030'
-              name = 'c332030'
-              email = 'c332030@gmail.com'
-            }
-          }
-          scm {
-            connection = "scm:git:git://git@github.com:cc332030/${rootProject.name}.git"
-            developerConnection = "scm:git:ssh://git@github.com:cc332030/${rootProject.name}.git"
-            url = "https://github.com/cc332030/${rootProject.name}"
-          }
-
-        }
-      }
-
-    }
-
-    repositories {
-      maven {
-        def releasesRepoUrl = "https://oss.sonatype.org/service/local/staging/deploy/maven2"
-        def snapshotsRepoUrl = "https://oss.sonatype.org/content/repositories/snapshots"
-        url = version.endsWith('SNAPSHOT') ? snapshotsRepoUrl : releasesRepoUrl
-
-        credentials {
-          username ossrhUsername
-          password ossrhPassword
-        }
-      }
-    }
-
-  }
-
-  signing {
-    sign publishing.publications
-  }
+  apply from: "${rootProject.projectDir}/java.gradle"
+  apply from: "${rootProject.projectDir}/publish.gradle"
 
 }

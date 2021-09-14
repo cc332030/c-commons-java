@@ -1,0 +1,30 @@
+
+[compileJava, compileTestJava, javadoc]*.options*.encoding = charset
+
+test {
+  exclude '**/*Test*.class'
+}
+
+java {
+  withJavadocJar()
+  withSourcesJar()
+  toolchain {
+    languageVersion = JavaLanguageVersion.of(jdk_version)
+    vendor = JvmVendorSpec.ADOPTOPENJDK
+    implementation = JvmImplementation.J9
+  }
+}
+
+jar {
+  enabled = true
+  into("META-INF/resources") {
+    from("src/main/webapp")
+  }
+}
+
+idea {
+  module {
+    downloadJavadoc = false
+    downloadSources = false
+  }
+}
