@@ -18,13 +18,13 @@ import okhttp3.OkHttpClient;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class OkHttpUtils {
 
-    public static final int CONNECT_TIMEOUT = 3 * 1000;
+    public static final int CONNECT_TIMEOUT = 10 * 1000;
 
     public static final int READ_TIMEOUT = 60 * 1000;
 
     public static final int WRITE_TIMEOUT = 60 * 1000;
 
-    public static final int KEEP_ALIVE_TIMEOUT = 10 * 1000;
+    public static final int KEEP_ALIVE_TIMEOUT = 60 * 1000;
 
     public static final int MAX_TOTAL_CONNECTIONS = 50;
 
