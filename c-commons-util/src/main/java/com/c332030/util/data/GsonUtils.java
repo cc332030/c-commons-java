@@ -24,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GsonUtils {
 
-    public static Gson gson = new Gson();
+    public static final Gson GSON = new Gson();
 
     /**
      * <p>
@@ -36,7 +36,7 @@ public class GsonUtils {
      * @author c332030
      */
     public static String toJson(@NonNull Object object) {
-        return gson.toJson(object);
+        return GSON.toJson(object);
     }
 
     /**
@@ -51,7 +51,7 @@ public class GsonUtils {
      * @author c332030
      */
     public static <T> T fromJson(@NonNull String json, @NonNull Class<T> tClass) {
-        return gson.fromJson(json, tClass);
+        return GSON.fromJson(json, tClass);
     }
 
     /**
@@ -67,6 +67,6 @@ public class GsonUtils {
      */
     public static <T> List<T> fromJsonOfArray(@NonNull String json, @NonNull Class<T> tClass) {
         Type type = new TypeToken<ArrayList<T>>(){}.getType();
-        return gson.fromJson(json, type);
+        return GSON.fromJson(json, type);
     }
 }
