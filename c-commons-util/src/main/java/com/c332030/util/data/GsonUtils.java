@@ -22,7 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GsonUtils {
 
-    private static final Gson GSON = new Gson();
+    public static final Gson GSON = new Gson();
 
     /**
      * <p>
