@@ -7,7 +7,9 @@ import java.util.List;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
 
 /**
@@ -22,7 +24,7 @@ import lombok.extern.slf4j.Slf4j;
 @NoArgsConstructor(access = AccessLevel.PRIVATE)
 public class GsonUtils {
 
-    public static final Gson GSON = new Gson();
+    public static Gson gson = new Gson();
 
     /**
      * <p>
@@ -34,7 +36,7 @@ public class GsonUtils {
      * @author c332030
      */
     public static String toJson(@NonNull Object object) {
-        return GSON.toJson(object);
+        return gson.toJson(object);
     }
 
     /**
@@ -49,7 +51,7 @@ public class GsonUtils {
      * @author c332030
      */
     public static <T> T fromJson(@NonNull String json, @NonNull Class<T> tClass) {
-        return GSON.fromJson(json, tClass);
+        return gson.fromJson(json, tClass);
     }
 
     /**
@@ -65,6 +67,6 @@ public class GsonUtils {
      */
     public static <T> List<T> fromJsonOfArray(@NonNull String json, @NonNull Class<T> tClass) {
         Type type = new TypeToken<ArrayList<T>>(){}.getType();
-        return GSON.fromJson(json, type);
+        return gson.fromJson(json, type);
     }
 }
