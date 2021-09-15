@@ -5,4 +5,9 @@ dependencies {
 
   api libs.cglib
 
+  api libs.okhttp
+
+  api libs.gson
+
+
 }

@@ -15,9 +15,6 @@ allprojects {
     compileOnly libs.bundles.commons
     testCompileOnly libs.bundles.commons
 
-    compileOnly libs.gson
-    testCompileOnly libs.gson
-
     compileOnly libs.guava
     testCompileOnly libs.guava
 
