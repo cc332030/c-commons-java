@@ -19,6 +19,9 @@ def isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
 
 dependencyResolutionManagement {
 
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+  // see https://github.com/cc332030/gradle-gnupg/blob/main/init-gradle.sh
   repositories {
 
     mavenLocal()
