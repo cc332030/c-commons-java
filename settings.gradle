@@ -19,6 +19,9 @@ def isWindows = Os.isFamily(Os.FAMILY_WINDOWS)
 
 dependencyResolutionManagement {
 
+  repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+
+  // see https://github.com/cc332030/gradle-gnupg/blob/main/init-gradle.sh
   repositories {
 
     mavenLocal()
@@ -56,7 +59,7 @@ dependencyResolutionManagement {
 
   versionCatalogs {
     libs {
-      from("com.c332030:c-commons-catalog:1.0.0-SNAPSHOT")
+      from(group: 'com.c332030', name: 'c-commons-catalog', version: '1.0.0')
     }
   }
 }
