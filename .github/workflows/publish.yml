@@ -1,7 +1,12 @@
 
 name: publish
 
-on: [push, pull_request]
+on:
+  push:
+    branches:
+      - "*"
+    tags-ignore:
+      - "*"
 
 jobs:
   publish:
