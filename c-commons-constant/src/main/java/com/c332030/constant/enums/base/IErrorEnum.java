@@ -1,4 +1,6 @@
-package com.c332030.constant.enums;
+package com.c332030.constant.enums.base;
+
+import com.c332030.constant.interfaces.ICode;
 
 /**
  * <p>

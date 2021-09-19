@@ -1,4 +1,4 @@
-package com.c332030.constant.enums;
+package com.c332030.constant.interfaces;
 
 /**
  * <p>
@@ -15,7 +15,7 @@ public interface ICode<T> {
      * Description: code not equals to name()
      * </p>
      *
-     * @return T code type
+     * @return T code
      * @author c332030
      */
     T getCode();

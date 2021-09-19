@@ -1,6 +1,6 @@
 package com.c332030.constant.enums.data;
 
-import com.c332030.constant.enums.IEnum;
+import com.c332030.constant.enums.base.IEnum;
 
 /**
  * <p>

@@ -1,21 +1,21 @@
-package com.c332030.constant.enums;
+package com.c332030.constant.interfaces;
 
 /**
  * <p>
- * Description: IEnum
+ * Description: IText
  * </p>
  *
  * @author c332030
  * @version 1.0
  */
-public interface IEnum {
+public interface IText {
 
     /**
      * <p>
-     * Description: 获取描述
+     * Description: get text
      * </p>
      *
-     * @return 枚举描述
+     * @return text
      * @author c332030
      */
     String getText();
