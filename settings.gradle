@@ -29,9 +29,6 @@ dependencyResolutionManagement {
     if (isWindows) {
 
       maven {
-        url "https://maven.aliyun.com/repository/public"
-      }
-      maven {
         url repoReleaseAliyun
         credentials {
           username aliyunPackagesUsername
@@ -45,15 +42,18 @@ dependencyResolutionManagement {
           password aliyunPackagesPassword
         }
       }
+      maven {
+        url "https://maven.aliyun.com/repository/public"
+      }
     } else {
 
-      mavenCentral()
       maven {
         url repoSnapshotSonatype
       }
       maven {
         url repoReleaseSonatype
       }
+      mavenCentral()
     }
   }
 
