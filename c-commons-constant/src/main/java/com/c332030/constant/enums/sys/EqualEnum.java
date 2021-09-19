@@ -39,6 +39,7 @@ public enum EqualEnum {
      * 右边的类实现或继承左边的接口或类
      */
     INSTANCE_EQUAL_RIGHT,
+
     ;
 
     private final int mark = 1 << this.ordinal();

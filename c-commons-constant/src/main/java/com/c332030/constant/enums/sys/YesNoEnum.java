@@ -14,9 +14,10 @@ import com.c332030.constant.enums.data.IDataDictEnum;
 @GenerateDataDict
 public enum YesNoEnum implements IDataDictEnum {
 
-    YES("是")
+    YES("是"),
 
-    , NO("否")
+    NO("否"),
+
     ;
 
     /**

@@ -2,22 +2,22 @@ package com.c332030.constant.enums;
 
 /**
  * <p>
- * Description: IEnum
+ * Description: ICode
  * </p>
  *
  * @author c332030
  * @version 1.0
  */
-public interface IEnum {
+public interface ICode<T> {
 
     /**
      * <p>
-     * Description: 获取描述
+     * Description: code not equals to name()
      * </p>
      *
-     * @return 枚举描述
+     * @return T code type
      * @author c332030
      */
-    String getText();
+    T getCode();
 
 }
