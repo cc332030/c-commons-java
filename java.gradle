@@ -1,9 +1,9 @@
 
 [compileJava, compileTestJava, javadoc]*.options*.encoding = charset
 
-test {
-  useJUnitPlatform()
-}
+// test {
+//   useJUnitPlatform()
+// }
 
 java {
 
