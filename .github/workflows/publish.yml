@@ -29,4 +29,4 @@ jobs:
           OSSRH_USERNAME: ${{ secrets.USER }}
           OSSRH_PASSWORD: ${{ secrets.OSSRH_PASSWORD }}
       - name: publish
-        run: ${{ secrets.GRADLEW }} publish
+        run: ${{ secrets.GRADLE_USER_HOME }}; ${{ secrets.GRADLEW }} publish
