@@ -1,4 +1,4 @@
-package com.c332030.constant.enumerable.annotation;
+package com.c332030.constant.enums.annotation;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

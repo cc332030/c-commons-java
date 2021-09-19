@@ -1,18 +1,23 @@
 package com.c332030.util.bean;
 
 import java.lang.reflect.Constructor;
-import java.util.*;
+import java.util.Arrays;
+import java.util.Map;
+import java.util.Objects;
 
 import org.apache.commons.lang3.ArrayUtils;
 
 import com.google.common.collect.Maps;
 
-import com.c332030.constant.enumerable.sys.EqualEnum;
+import lombok.AccessLevel;
+import lombok.NoArgsConstructor;
+import lombok.NonNull;
+import lombok.extern.slf4j.Slf4j;
+
+import com.c332030.constant.enums.sys.EqualEnum;
 import com.c332030.util.asserts.CAssert;
 import com.c332030.util.collection.CArrayUtils;
 import com.c332030.util.data.CStringUtils;
-import lombok.*;
-import lombok.extern.slf4j.Slf4j;
 
 import net.sf.cglib.beans.BeanCopier;
 

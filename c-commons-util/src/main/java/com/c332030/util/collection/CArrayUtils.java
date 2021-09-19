@@ -1,9 +1,10 @@
 package com.c332030.util.collection;
 
-import com.c332030.constant.enumerable.sys.EqualEnum;
-import com.c332030.util.bean.CObjectUtils;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
+
+import com.c332030.constant.enums.sys.EqualEnum;
+import com.c332030.util.bean.CObjectUtils;
 
 /**
  * <p>

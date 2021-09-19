@@ -1,7 +1,7 @@
-package com.c332030.constant.enumerable.sys;
+package com.c332030.constant.enums.sys;
 
-import com.c332030.constant.enumerable.annotation.GenerateDataDict;
-import com.c332030.constant.enumerable.data.IDataDictEnum;
+import com.c332030.constant.enums.annotation.GenerateDataDict;
+import com.c332030.constant.enums.data.IDataDictEnum;
 
 /**
  * <p>

@@ -1,4 +1,4 @@
-package com.c332030.constant.enumerable;
+package com.c332030.constant.enums;
 
 /**
  * <p>

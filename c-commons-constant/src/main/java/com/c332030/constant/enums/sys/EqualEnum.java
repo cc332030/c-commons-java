@@ -1,4 +1,4 @@
-package com.c332030.constant.enumerable.sys;
+package com.c332030.constant.enums.sys;
 
 /**
  * <p>
