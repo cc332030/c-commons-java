@@ -34,4 +34,4 @@ jobs:
             ~/.gradle/jdks
             ~/.gradle/caches
       - name: publish
-        run: gradlew --refresh-dependencies publish
+        run: ./gradlew --refresh-dependencies publish
