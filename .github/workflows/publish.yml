@@ -16,13 +16,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: init gnupg
-        run: ${{ secrets.INIT_GPG }}
+      - uses: cc332030/init-gpg-action@main
         env:
           GPG_PRIVATE_KEY: ${{ secrets.GPG_PRIVATE_KEY }}
           GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
-      - name: init gradle
-        run: ${{ secrets.INIT_GRADLE }}
+      - uses: cc332030/init-gradle-action@main
         env:
           GPG_SIGN_KEY: ${{ secrets.GPG_SIGN_KEY }}
           GPG_PASSWORD: ${{ secrets.GPG_PASSWORD }}
@@ -36,4 +34,4 @@ jobs:
             ~/.gradle/jdks
             ~/.gradle/caches
       - name: publish
-        run: ${{ secrets.GRADLEW }} publish
+        run: gradlew --refresh-dependencies publish
