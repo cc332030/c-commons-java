@@ -1,6 +1,5 @@
 package com.c332030.constant.enums.sys;
 
-import com.c332030.constant.enums.annotation.GenerateDataDict;
 import com.c332030.constant.enums.data.IDataDictEnum;
 
 /**
@@ -11,7 +10,6 @@ import com.c332030.constant.enums.data.IDataDictEnum;
  * @author c332030
  * @version 1.0
  */
-@GenerateDataDict
 public enum YesNoEnum implements IDataDictEnum {
 
     YES("是"),
