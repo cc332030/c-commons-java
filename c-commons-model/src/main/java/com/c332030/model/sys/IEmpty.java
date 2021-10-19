@@ -2,7 +2,7 @@ package com.c332030.model.sys;
 
 /**
  * <p>
- * Description: EmptyAble
+ * Description: IEmpty
  * </p>
  *
  * @author c332030
@@ -20,18 +20,6 @@ public interface IEmpty {
      */
     default boolean isEmpty() {
         return false;
-    }
-
-    /**
-     * <p>
-     * Description: 判断是否不为空
-     * </p>
-     *
-     * @return 判断是否不为空 结果
-     * @author c332030
-     */
-    default boolean isNotEmpty() {
-        return true;
     }
 
 }
