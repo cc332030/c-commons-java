@@ -40,7 +40,7 @@ public class CObjectUtils {
      * @author c332030
      */
     public static boolean isNotEmpty(IEmpty empty) {
-        return null != empty && empty.isNotEmpty();
+        return !isEmpty(empty);
     }
 
     /**
