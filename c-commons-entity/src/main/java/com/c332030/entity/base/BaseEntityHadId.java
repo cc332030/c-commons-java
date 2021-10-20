@@ -13,7 +13,7 @@ import lombok.ToString;
  */
 @Data
 @ToString(callSuper = false)
-public abstract class BaseEntityHadId<E> extends BaseEntity {
+public class BaseEntityHadId<E> extends BaseEntity {
     private static final long serialVersionUID = -8720518184648057614L;
 
     /**

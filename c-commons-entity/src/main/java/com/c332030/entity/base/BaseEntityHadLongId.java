@@ -8,6 +8,6 @@ package com.c332030.entity.base;
  * @author c332030
  * @version 1.0
  */
-public abstract class BaseEntityHadLongId extends BaseEntityHadId<Long> {
+public class BaseEntityHadLongId extends BaseEntityHadId<Long> {
     private static final long serialVersionUID = 6984184284816651779L;
 }

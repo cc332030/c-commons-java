@@ -10,6 +10,6 @@ import com.c332030.entity.IEntity;
  * @author c332030
  * @version 1.0
  */
-public abstract class BaseEntity implements IEntity {
+public class BaseEntity implements IEntity {
     private static final long serialVersionUID = 465302895944694735L;
 }

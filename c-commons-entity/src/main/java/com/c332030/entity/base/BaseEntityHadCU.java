@@ -13,7 +13,7 @@ import lombok.Data;
  * @version 1.0
  */
 @Data
-public abstract class BaseEntityHadCU<E> extends BaseEntityHadCreateTime<E> {
+public class BaseEntityHadCU<E> extends BaseEntityHadCreateTime<E> {
     private static final long serialVersionUID = 9222290124901358197L;
 
     /**
