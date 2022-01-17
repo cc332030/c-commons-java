@@ -24,8 +24,6 @@ dependencyResolutionManagement {
   // see https://github.com/cc332030/init-gradle-action
   repositories {
 
-    mavenLocal()
-
     if (isWindows) {
 
       maven {
